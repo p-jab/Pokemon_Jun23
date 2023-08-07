@@ -73,6 +73,12 @@ def by_name(p_list = []):
     :param p_list: A list of pokemon
     :return: does not return anything
     """
+    p_name = input("Enter name of Pokemon: ")
+    for pokemon in p_list:
+        if pokemon[1].lower() == p_name.lower():
+            print(pokemon)
+            return
+    print(f"Sorry, {p_name} is not on the list")
 
 def by_type(p_list = []):
     
@@ -88,6 +94,16 @@ def by_type(p_list = []):
     :param p_list: A list of pokemon
     :return: does not return anything
     """
+    p_type = input("Enter type of Pokemon: ")
+    types =[]
+    for pokemon in p_list:
+        if pokemon[2].lower() == p_type.lower() or pokemon[3].lower() == p_type.lower():
+            types.append(pokemon)
+    if len(types) == 0:
+        print(f"Sorry, no Pokemon of type {p_type} is on the list")
+    else:
+        for poke in types:
+            print(poke)
 
 def add_specific_poke():
     
