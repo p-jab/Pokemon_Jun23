@@ -36,7 +36,7 @@ def run():
         elif opt == 4:
             opt2 = visualise()
             if opt2 == 1:
-                pass
+                pie_chart(pokedex)
             elif opt2 == 2:
                 pass
         elif opt == 5:
