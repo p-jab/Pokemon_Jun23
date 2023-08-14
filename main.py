@@ -1,21 +1,47 @@
 '''Task 12: Import the modules utils and visual'''
-
+from utils import *
+from graphs import *
 '''Task 13: Create an empty list named 'pokedex'.
     This will be used to store your pokemon. '''
-
+pokedex = list()
 
 def run():
-   
     '''
     Task 14: Call the function startup from the module utils.
     '''
-
+    startup()
     '''
     Task 15: Populate the pokedex list from pokedex.csv file, using an appropriate 
     function from utils module.
     '''
-
+    pokedex = load_pokes("pokedex.csv")
     while True:
+        opt = options()
+        if opt == 1:
+            opt2 = check_poke()
+            if opt2 == 1:
+                by_name(pokedex)
+            elif opt2 == 2:
+                by_type(pokedex)
+        elif opt == 2:
+            opt2 = add_poke()
+            if opt2 == 1:
+                pokemon = add_specific_poke()
+                if pokemon:
+                    pokedex.append(pokemon)
+            elif opt2 == 2:
+                pokedex.append(add_random_poke())
+        elif opt == 3:
+            show_all(pokedex)
+        elif opt == 4:
+            opt2 = visualise()
+            if opt2 == 1:
+                pass
+            elif opt2 == 2:
+                pass
+        elif opt == 5:
+            save_pokes(pokedex)
+
         '''
         Task 16: Using an appropriate function in the module utils, display
         a menu of options for the different operations that can be performed on the data.
@@ -29,7 +55,7 @@ def run():
         of suitable options.
         '''
         '''
-            Task 18: If user chooses to show pokemon by name, then diplay all 
+            Task 18: If user chooses to show pokemon by name, then display all 
             information about this particular pokemon. If user chooses to show pokemon
             by type, display all pokemon of that type (full details)
 
