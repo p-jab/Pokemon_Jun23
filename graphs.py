@@ -28,3 +28,12 @@ def bar_chart(pokedex = []):
     :param pokedex: list of pokemon
     :return: None
     """
+    diction = {} # {"Bug": 1, "Water": 7}
+    for pokemon in pokedex:
+        diction[pokemon[2]] = diction.get(pokemon[2], 0) + 1
+    plt.bar(diction.keys(), diction.values(), color = "r")
+    print(diction)
+    plt.title("Pokemon sorted by type")
+    plt.xlabel("Type of Pokemon")
+    plt.ylabel("Frequency")
+    plt.savefig("types.png")

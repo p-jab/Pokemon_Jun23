@@ -16,31 +16,38 @@ def run():
     '''
     pokedex = load_pokes("pokedex.csv")
     while True:
-        opt = options()
-        if opt == 1:
-            opt2 = check_poke()
-            if opt2 == 1:
-                by_name(pokedex)
-            elif opt2 == 2:
-                by_type(pokedex)
-        elif opt == 2:
-            opt2 = add_poke()
-            if opt2 == 1:
-                pokemon = add_specific_poke()
-                if pokemon:
-                    pokedex.append(pokemon)
-            elif opt2 == 2:
-                pokedex.append(add_random_poke())
-        elif opt == 3:
-            show_all(pokedex)
-        elif opt == 4:
-            opt2 = visualise()
-            if opt2 == 1:
-                pie_chart(pokedex)
-            elif opt2 == 2:
-                pass
-        elif opt == 5:
-            save_pokes(pokedex)
+        try:
+            opt = options()
+            if opt == 1:
+                opt2 = check_poke()
+                if opt2 == 1:
+                    by_name(pokedex)
+                elif opt2 == 2:
+                    by_type(pokedex)
+            elif opt == 2:
+                opt2 = add_poke()
+                if opt2 == 1:
+                    pokemon = add_specific_poke()
+                    if pokemon:
+                        pokedex.append(pokemon)
+                elif opt2 == 2:
+                    pokedex.append(add_random_poke())
+            elif opt == 3:
+                show_all(pokedex)
+            elif opt == 4:
+                opt2 = visualise()
+                if opt2 == 1:
+                    pie_chart(pokedex)
+                elif opt2 == 2:
+                    bar_chart(pokedex)
+            elif opt == 5:
+                save_pokes(pokedex)
+            elif opt == 0:
+                break
+        except ValueError:
+            print("Invalid Input")
+        except TypeError:
+            print("Incorrect data type")
 
         '''
         Task 16: Using an appropriate function in the module utils, display
